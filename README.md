@@ -117,3 +117,16 @@ Use the returned JWT access token to authorize protected endpoints.
 
 GitHub: https://github.com/ironneon
 
+
+## Running Tests
+
+Install test dependencies:
+```bash
+pip install pytest httpx
+```
+
+Run tests:
+```bash
+python -m pytest -v
+```
+
