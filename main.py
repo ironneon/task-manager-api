@@ -1,11 +1,16 @@
-﻿from fastapi import FastAPI, status, HTTPException, Depends
+﻿
+from fastapi import FastAPI, status, HTTPException, Depends
 from sqlalchemy.orm import Session
 
-from database import SessionLocal
+from database import Base, engine
 from models import Task, User
 from schemas import TaskCreate, TaskUpdate, TaskResponse
 from auth_routes import router as auth_router
 from dependencies import get_db, get_current_user
+
+
+# Create database tables if they do not exist
+Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI(
